@@ -1,0 +1,6 @@
+labeling.db
+__pycache__/
+.pytest_cache/
+*.egg-info/
+INTERVIEW_CHEAT_SHEET*
+_*_preview.png
