@@ -4,6 +4,7 @@ A Python and SQL ETL pipeline that takes image-annotation exports from two diffe
 
 ## Tech Stack
 
+![CI](https://github.com/Danial-Umer710/Image-Labeling-ETL/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-window%20functions-4479A1)
@@ -121,5 +122,7 @@ pytest -v         # one line per test
 | `tests/test_loaders.py` | 7 | row counts per loader, country mapping, delta second run inserts 0, new label version is inserted |
 | `tests/test_dedup.py` | 4 | superseded versions deleted, latest kept, unique labels untouched, dedup is idempotent |
 | `tests/test_queries.py` | 4 | expected results for Q1-Q3 and the `run_all` runner |
+
+**CI:** `.github/workflows/ci.yml` runs the full suite plus a fresh pipeline run and an idempotent re-run on Python 3.10, 3.11 and 3.12 for every push and pull request.
 
 Each test uses a fresh in-memory SQLite database (`tests/conftest.py`) loaded from the real CSVs in `data/`, so the tests never touch `labeling.db`.
